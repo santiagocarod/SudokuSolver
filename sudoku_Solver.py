@@ -1,4 +1,4 @@
-
+##-- Santiago Caro Duque
 
 def read_game(file_name):
     f = open(file_name, 'r')
@@ -44,30 +44,14 @@ def done(game):
     return True
 
 
-def first_verification(game):
-    changes = 1
-    while changes > 0:
-        changes=0
-        for i in range(9):
-            for j in range(9):
-                if game[i][j] == '0':
-                    posibilities = get_posibilities(game, i, j)
-                    if len(posibilities) == 1:
-                        game[i][j] = str(posibilities[0])
-                        changes +=1
-
-
 def solve_game(game):
-    #first_verification(game)
     if done(game):
         return True
     else:
         for row in range(9):
             for column in range(9):
                 if game[row][column]=='0':
-                    #print(f'{row} and {column}')
                     posibilities = get_posibilities(game,row,column)
-                    #print(f'{posibilities}')
                     if len(posibilities) == 0:
                         return False
                     else:
@@ -79,15 +63,8 @@ def solve_game(game):
                         return False
 
 
-
-
-
 game = read_game("Extreme.txt")
 print(solve_game(game))
-#print(get_posibilities(game,0,0))
-
-
-
 
 
 for i in game:
